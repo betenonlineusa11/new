@@ -1,24 +1,45 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta charset="utf-8">// ...existing code...
+<!doctype html>
+<html lang="en">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" href="./assets/img/velocityx-logo.svg">
-<title>VelocityX Racing - Immersive Browser-Based Racing Experience</title>
-<meta name="description" content="VelocityX Racing delivers a high-performance, browser-based racing experience with realistic physics, stunning visuals, and competitive gameplay.">
-<meta property="og:title" content="VelocityX Racing - Next-Gen Browser Racing">
-<meta property="og:description" content="Experience professional-grade racing directly in your browser. No downloads, pure performance.">
+<link rel="canonical" href="https://www.velocityxracing.example/" />
+<title>VelocityX Racing — Pro Browser Racing: Real Physics, Instant Play</title>
+<meta name="description" content="VelocityX Racing delivers professional-grade, browser-native racing with realistic physics, WebGL visuals, global leaderboards, and zero installation. Race instantly on any device." />
+<meta name="theme-color" content="#4f46e5">
+<meta property="og:site_name" content="VelocityX Racing">
+<meta property="og:title" content="VelocityX Racing — Pro Browser Racing: Real Physics, Instant Play">
+<meta property="og:description" content="Play high-fidelity racing in your browser with advanced physics, low-latency networking, and competitive leaderboards. No downloads, instant access.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="./assets/img/velocityx-logo.svg">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VelocityX Racing — Browser Racing Reimagined">
-<meta name="twitter:description" content="High-speed racing with advanced physics simulation, competitive leaderboards, and seamless cross-platform play.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VelocityX Racing — Pro Browser Racing">
+<meta name="twitter:description" content="Realistic physics, WebGL graphics, 60+ FPS performance, and global leaderboards — all in your browser.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "VelocityX Racing",
+  "url": "https://www.velocityxracing.example/",
+  "description": "Play professional-grade racing in your browser with realistic physics, WebGL visuals, and competitive leaderboards.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.velocityxracing.example/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 </head>
 <body>
-<nav class="nav">
+<nav class="nav" aria-label="Main navigation">
   <div class="container nav-inner">
     <a class="logo" href="index.html" aria-label="Home">  <span>VelocityX Racing</span></a>
     <div class="menu" data-nav-menu>
@@ -31,118 +52,425 @@
       <a href="privacy.html">Privacy</a>
       <a href="terms.html">Terms</a>
     </div>
-    <div class="right"><a class="btn ghost" data-nav-toggle>Menu</a><a class="btn" href="game.html">Race Now</a></div>
+    <div class="right"><button class="btn ghost" data-nav-toggle aria-expanded="false">Menu</button><a class="btn" href="game.html">Race Now</a></div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="container grid">
-    <div>
+<header class="hero" role="banner">
+  <div class="container grid" style="align-items:center;gap:28px">
+    <main>
       <div class="badge">Race • Master • Compete</div>
-      <h1>VelocityX Racing — Where precision meets pure speed.</h1>
-      <p>Experience professional-grade racing simulation directly in your browser. Master challenging tracks, compete globally, and push your driving skills to the limit with our advanced physics engine.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <a class="btn" href="game.html">Start Racing</a>
-        <a class="btn ghost" href="blog.html">Racing Guides</a>
+      <h1>Instant, Pro-Grade Racing in Your Browser</h1>
+      <p style="max-width:60ch;opacity:0.9">VelocityX brings a desktop-grade driving experience to the web — advanced tire and aerodynamic physics, deterministic netcode for fair multiplayer, and WebGL visuals tuned for 60+ FPS. No downloads. No barriers. Jump into a race in seconds.</p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+        <a class="btn" href="game.html" aria-label="Start Racing">Start Racing</a>
+        <a class="btn ghost" href="blog.html" aria-label="View Racing Guides">Racing Guides</a>
       </div>
-      <div class="kudos">
-        <span class="pill">🏎️ Advanced physics simulation</span>
-        <span class="pill">🌍 Global competition</span>
-        <span class="pill">⚡ Zero installation required</span>
+
+      <ul class="kudos" aria-hidden="false" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+        <li class="pill">🏎️ Realistic physics</li>
+        <li class="pill">⚡ 60+ FPS & low latency</li>
+        <li class="pill">🌍 Cross-platform multiplayer</li>
+      </ul>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <form id="newsletter" action="/.netlify/functions/subscribe" method="post" style="display:flex;gap:8px;align-items:center" aria-label="Join newsletter">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="your@email.com" required aria-required="true">
+          <button class="btn" type="submit">Join Beta</button>
+        </form>
+        <div class="trust" style="display:flex;gap:8px;align-items:center">
+          <img src="assets/img/trust-50k.svg" alt="50k+ players" width="88" height="24" loading="lazy">
+          <img src="assets/img/trust-2m.svg" alt="2M races" width="88" height="24" loading="lazy">
+        </div>
       </div>
-    </div>
-    <div class="card">
+
+      <div style="margin-top:22px">
+        <a href="game.html" class="btn" aria-label="Play demo now">Play Demo • Instant</a>
+        <a href="about.html" class="btn ghost" aria-label="Learn more about VelocityX" style="margin-left:8px">How It Works</a>
+      </div>
+    </main>
+
+    <aside class="card" aria-label="Features and stats" style="min-width:300px">
       <div class="grid-2">
         <div class="card">
-          <div class="stat"><div class="n">60 FPS+</div><div class="t">Buttery Smooth Performance</div></div>
+          <div class="stat"><div class="n">60 FPS+</div><div class="t">Buttery Smooth</div></div>
         </div>
         <div class="card">
-          <div class="stat"><div class="n">WebGL</div><div class="t">Hardware-Accelerated Graphics</div></div>
+          <div class="stat"><div class="n">WebGL</div><div class="t">Hardware Acceleration</div></div>
         </div>
       </div>
-    </div>
+      <div style="margin-top:12px">
+        <img src="assets/img/hero-screenshot.jpg" alt="In-game screenshot" style="width:100%;border-radius:8px" loading="lazy">
+      </div>
+    </aside>
   </div>
 </header>
 
-<section class="section container">
-  <h2>Why Choose VelocityX?</h2>
-  <p style="max-width:720px;margin:0 auto 32px;opacity:0.8">VelocityX Racing combines cutting-edge browser technology with authentic racing mechanics to deliver an experience that rivals desktop racing games—without the wait, without the downloads.</p>
-  
+<section class="section container" aria-labelledby="why-heading">
+  <h2 id="why-heading">Why Choose VelocityX?</h2>
+  <p style="max-width:720px;margin:0 auto 32px;opacity:0.85">We combine modern browser tech and optimized simulation to deliver an authentic racing experience that's accessible anywhere. Below are the pillars of the VelocityX experience.</p>
+
   <div class="grid-2" style="margin-bottom:48px">
     <div class="card">
-      <h3 style="margin-bottom:12px">🎯 Instant Access</h3>
-      <p>No downloads, no installations, no barriers. Click and race on any device—desktop, tablet, or mobile. Our lightweight architecture ensures fast load times even on slower connections.</p>
+      <h3>Instant Access</h3>
+      <p>No downloads, instant play on desktop and mobile. Our lightweight client streams assets and prioritizes the race loop for fast startup.</p>
     </div>
     <div class="card">
-      <h3 style="margin-bottom:12px">🏁 Realistic Physics</h3>
-      <p>Our proprietary physics engine simulates tire grip, weight transfer, and aerodynamics for an authentic racing feel. Every turn requires skill, every overtake demands precision.</p>
+      <h3>True Physics</h3>
+      <p>Industry-inspired tire model, weight transfer, and aero forces — tuned for responsiveness and predictability so lap times reward skill.</p>
     </div>
     <div class="card">
-      <h3 style="margin-bottom:12px">📊 Competitive Excellence</h3>
-      <p>Climb the global leaderboards, track your personal records, and analyze your performance metrics. Compare lap times, study racing lines, and prove you're the fastest.</p>
+      <h3>Competitive Ecosystem</h3>
+      <p>Ranked matchmaking, global leaderboards, lap telemetry, and replay sharing so racers can improve and compete fairly.</p>
     </div>
     <div class="card">
-      <h3 style="margin-bottom:12px">🔧 Built for Performance</h3>
-      <p>Optimized vanilla JavaScript with WebGL rendering ensures maximum frame rates and minimal latency. We obsess over performance so you can focus on racing.</p>
+      <h3>Performance First</h3>
+      <p>Optimized vanilla JS, WebGL rendering, and deterministic networking to minimize client-side variance and ensure tight, responsive gameplay.</p>
     </div>
   </div>
 
-  <h2 style="margin-top:64px">Racing Features</h2>
-  
-</section>
-
-<section class="section container">
-  <div class="card" style="background:linear-gradient(135deg,rgba(79,70,229,0.1),rgba(124,58,237,0.1));border:1px solid rgba(79,70,229,0.2)">
-    <h2>Join the Racing Community</h2>
-    <p style="max-width:680px;margin:12px auto 24px">Thousands of racers worldwide compete daily on VelocityX. Whether you're a casual driver or a competitive speed enthusiast, there's a place for you on our tracks.</p>
-    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:24px">
-      <div class="card" style="flex:1;min-width:200px;max-width:280px">
-        <div class="stat"><div class="n">50K+</div><div class="t">Active Racers</div></div>
-      </div>
-      <div class="card" style="flex:1;min-width:200px;max-width:280px">
-        <div class="stat"><div class="n">2M+</div><div class="t">Races Completed</div></div>
-      </div>
-      <div class="card" style="flex:1;min-width:200px;max-width:280px">
-        <div class="stat"><div class="n">12</div><div class="t">Unique Tracks</div></div>
-      </div>
+  <h2 style="margin-top:64px">Key Features</h2>
+  <div class="grid-3" style="gap:18px;margin-top:18px">
+    <div class="card">
+      <h4>Low-latency Multiplayer</h4>
+      <p>Predictive client-side interpolation and authoritative servers for fair multiplayer racing.</p>
+    </div>
+    <div class="card">
+      <h4>Telemetry & Replays</h4>
+      <p>Record laps, analyze braking points, and compare lines with top racers.</p>
+    </div>
+    <div class="card">
+      <h4>Customizable Controls</h4>
+      <p>Gamepad, wheel, keyboard input mapping, and sensitivity tuning for every playstyle.</p>
     </div>
   </div>
 </section>
 
-<section id="contact" class="section container">
-  <div class="card">
-    <h2>Get In Touch</h2>
-    <p>Have questions about gameplay? Want to report a technical issue? Interested in partnerships? We're here to help and always eager to hear from our racing community.</p>
-    <form id="contact-form" style="max-width:720px;margin:24px auto 0;text-align:left">
-      <div class="form-row">
-        <div>
-          <label>Name</label>
-          <input name="name" required placeholder="Your Name">
+<section class="section container" aria-labelledby="social-proof">
+  <h2 id="social-proof">Trusted by Racers Worldwide</h2>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;justify-content:center">
+    <div class="card" style="max-width:420px">
+      <blockquote>
+        "VelocityX nails the feeling of high-speed racing — precise, responsive, and fun. The browser client is shockingly good."
+      </blockquote>
+      <div class="meta">— Alex J., Pro sim racer</div>
+    </div>
+    <div class="card" style="max-width:420px">
+      <blockquote>
+        "We run closed tournaments with no downloads. The netcode is consistent and the leaderboards are fierce."
+      </blockquote>
+      <div class="meta">— Community Organizer</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section container" aria-labelledby="contact-heading">
+  <div class="card" style="padding:24px">
+    <h2 id="contact-heading">Contact & Support</h2>
+    <p>Questions about gameplay, partnerships, or technical issues? Reach out — we reply quickly.</p>
+
+    <form id="contact-form" style="max-width:720px;margin:18px auto 0;text-align:left" action="/.netlify/functions/contact" method="post" aria-label="Contact form">
+      <div class="form-row" style="display:flex;gap:12px">
+        <div style="flex:1">
+          <label for="name">Name</label>
+          <input id="name" name="name" required placeholder="Your name" aria-required="true">
         </div>
-        <div>
-          <label>Email</label>
-          <input name="email" required type="email" placeholder="your.email@example.com">
+        <div style="flex:1">
+          <label for="email">Email</label>
+          <input id="email" name="email" required type="email" placeholder="you@example.com" aria-required="true">
         </div>
       </div>
-      <div style="height:12px"></div>
-      <div>
-        <label>Message</label>
-        <textarea name="message" rows="4" placeholder="Share your feedback, questions, or suggestions..."></textarea>
+
+      <!-- Honeypot field to reduce spam -->
+      <div style="display:none">
+        <label for="website">Website</label>
+        <input id="website" name="website" tabindex="-1" autocomplete="off">
       </div>
-      <div style="height:18px"></div>
-      <button class="btn" type="submit">Send Message</button>
+
+      <div style="margin-top:12px">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Share your feedback, bug, or partnership idea..." required></textarea>
+      </div>
+
+      <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+        <button class="btn" type="submit">Send Message</button>
+        <small style="opacity:0.8">We respond within 48 hours. Privacy-respecting, no tracking required to contact us.</small>
+      </div>
     </form>
   </div>
 </section>
 
-<footer class="footer">
+<footer class="footer" role="contentinfo">
   <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
     <div>© 2025 VelocityX Racing. All rights reserved.</div>
     <div style="display:flex;gap:12px;align-items:center">
-      <span class="badge">Cross-Platform • Privacy-Focused</span>
+      <a href="privacy.html" style="opacity:0.9">Privacy</a>
+      <a href="terms.html" style="opacity:0.9">Terms</a>
     </div>
   </div>
 </footer>
-<script src="assets/js/main.js"></script>
+
+<script>
+  // Minimal JS: accessible mobile menu toggle and simple newsletter/contact form UX hooks.
+  (function(){
+    const btn = document.querySelector('[data-nav-toggle]');
+    const menu = document.querySelector('[data-nav-menu]');
+    if(btn && menu){
+      btn.addEventListener('click', ()=> {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.style.display = expanded ? '' : 'block';
+      });
+    }
+    // Basic client-side form honeypot validation
+    const form = document.getElementById('contact-form');
+    if(form){
+      form.addEventListener('submit', (e)=>{
+        const hp = form.querySelector('[name="website"]');
+        if(hp && hp.value){
+          e.preventDefault();
+        }
+      });
+    }
+  })();
+</script>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" href="./assets/img/velocityx-logo.svg">
+<link rel="canonical" href="https://www.velocityxracing.example/" />
+<title>VelocityX Racing — Pro Browser Racing: Real Physics, Instant Play</title>
+<meta name="description" content="VelocityX Racing delivers professional-grade, browser-native racing with realistic physics, WebGL visuals, global leaderboards, and zero installation. Race instantly on any device." />
+<meta name="theme-color" content="#4f46e5">
+<meta property="og:site_name" content="VelocityX Racing">
+<meta property="og:title" content="VelocityX Racing — Pro Browser Racing: Real Physics, Instant Play">
+<meta property="og:description" content="Play high-fidelity racing in your browser with advanced physics, low-latency networking, and competitive leaderboards. No downloads, instant access.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="./assets/img/velocityx-logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="VelocityX Racing — Pro Browser Racing">
+<meta name="twitter:description" content="Realistic physics, WebGL graphics, 60+ FPS performance, and global leaderboards — all in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "VelocityX Racing",
+  "url": "https://www.velocityxracing.example/",
+  "description": "Play professional-grade racing in your browser with realistic physics, WebGL visuals, and competitive leaderboards.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.velocityxracing.example/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+<nav class="nav" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a class="logo" href="index.html" aria-label="Home">  <span>VelocityX Racing</span></a>
+    <div class="menu" data-nav-menu>
+      <a href="index.html" style='opacity:1;font-weight:800'>Home</a>
+      <a href="game.html">Race Now</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="faq.html">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="right"><button class="btn ghost" data-nav-toggle aria-expanded="false">Menu</button><a class="btn" href="game.html">Race Now</a></div>
+  </div>
+</nav>
+
+<header class="hero" role="banner">
+  <div class="container grid" style="align-items:center;gap:28px">
+    <main>
+      <div class="badge">Race • Master • Compete</div>
+      <h1>Instant, Pro-Grade Racing in Your Browser</h1>
+      <p style="max-width:60ch;opacity:0.9">VelocityX brings a desktop-grade driving experience to the web — advanced tire and aerodynamic physics, deterministic netcode for fair multiplayer, and WebGL visuals tuned for 60+ FPS. No downloads. No barriers. Jump into a race in seconds.</p>
+
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
+        <a class="btn" href="game.html" aria-label="Start Racing">Start Racing</a>
+        <a class="btn ghost" href="blog.html" aria-label="View Racing Guides">Racing Guides</a>
+      </div>
+
+      <ul class="kudos" aria-hidden="false" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px">
+        <li class="pill">🏎️ Realistic physics</li>
+        <li class="pill">⚡ 60+ FPS & low latency</li>
+        <li class="pill">🌍 Cross-platform multiplayer</li>
+      </ul>
+
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+        <form id="newsletter" action="/.netlify/functions/subscribe" method="post" style="display:flex;gap:8px;align-items:center" aria-label="Join newsletter">
+          <label for="newsletter-email" class="sr-only">Email address</label>
+          <input id="newsletter-email" name="email" type="email" placeholder="your@email.com" required aria-required="true">
+          <button class="btn" type="submit">Join Beta</button>
+        </form>
+        <div class="trust" style="display:flex;gap:8px;align-items:center">
+          <img src="assets/img/trust-50k.svg" alt="50k+ players" width="88" height="24" loading="lazy">
+          <img src="assets/img/trust-2m.svg" alt="2M races" width="88" height="24" loading="lazy">
+        </div>
+      </div>
+
+      <div style="margin-top:22px">
+        <a href="game.html" class="btn" aria-label="Play demo now">Play Demo • Instant</a>
+        <a href="about.html" class="btn ghost" aria-label="Learn more about VelocityX" style="margin-left:8px">How It Works</a>
+      </div>
+    </main>
+
+    <aside class="card" aria-label="Features and stats" style="min-width:300px">
+      <div class="grid-2">
+        <div class="card">
+          <div class="stat"><div class="n">60 FPS+</div><div class="t">Buttery Smooth</div></div>
+        </div>
+        <div class="card">
+          <div class="stat"><div class="n">WebGL</div><div class="t">Hardware Acceleration</div></div>
+        </div>
+      </div>
+      <div style="margin-top:12px">
+        <img src="assets/img/hero-screenshot.jpg" alt="In-game screenshot" style="width:100%;border-radius:8px" loading="lazy">
+      </div>
+    </aside>
+  </div>
+</header>
+
+<section class="section container" aria-labelledby="why-heading">
+  <h2 id="why-heading">Why Choose VelocityX?</h2>
+  <p style="max-width:720px;margin:0 auto 32px;opacity:0.85">We combine modern browser tech and optimized simulation to deliver an authentic racing experience that's accessible anywhere. Below are the pillars of the VelocityX experience.</p>
+
+  <div class="grid-2" style="margin-bottom:48px">
+    <div class="card">
+      <h3>Instant Access</h3>
+      <p>No downloads, instant play on desktop and mobile. Our lightweight client streams assets and prioritizes the race loop for fast startup.</p>
+    </div>
+    <div class="card">
+      <h3>True Physics</h3>
+      <p>Industry-inspired tire model, weight transfer, and aero forces — tuned for responsiveness and predictability so lap times reward skill.</p>
+    </div>
+    <div class="card">
+      <h3>Competitive Ecosystem</h3>
+      <p>Ranked matchmaking, global leaderboards, lap telemetry, and replay sharing so racers can improve and compete fairly.</p>
+    </div>
+    <div class="card">
+      <h3>Performance First</h3>
+      <p>Optimized vanilla JS, WebGL rendering, and deterministic networking to minimize client-side variance and ensure tight, responsive gameplay.</p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:64px">Key Features</h2>
+  <div class="grid-3" style="gap:18px;margin-top:18px">
+    <div class="card">
+      <h4>Low-latency Multiplayer</h4>
+      <p>Predictive client-side interpolation and authoritative servers for fair multiplayer racing.</p>
+    </div>
+    <div class="card">
+      <h4>Telemetry & Replays</h4>
+      <p>Record laps, analyze braking points, and compare lines with top racers.</p>
+    </div>
+    <div class="card">
+      <h4>Customizable Controls</h4>
+      <p>Gamepad, wheel, keyboard input mapping, and sensitivity tuning for every playstyle.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section container" aria-labelledby="social-proof">
+  <h2 id="social-proof">Trusted by Racers Worldwide</h2>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;justify-content:center">
+    <div class="card" style="max-width:420px">
+      <blockquote>
+        "VelocityX nails the feeling of high-speed racing — precise, responsive, and fun. The browser client is shockingly good."
+      </blockquote>
+      <div class="meta">— Alex J., Pro sim racer</div>
+    </div>
+    <div class="card" style="max-width:420px">
+      <blockquote>
+        "We run closed tournaments with no downloads. The netcode is consistent and the leaderboards are fierce."
+      </blockquote>
+      <div class="meta">— Community Organizer</div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section container" aria-labelledby="contact-heading">
+  <div class="card" style="padding:24px">
+    <h2 id="contact-heading">Contact & Support</h2>
+    <p>Questions about gameplay, partnerships, or technical issues? Reach out — we reply quickly.</p>
+
+    <form id="contact-form" style="max-width:720px;margin:18px auto 0;text-align:left" action="/.netlify/functions/contact" method="post" aria-label="Contact form">
+      <div class="form-row" style="display:flex;gap:12px">
+        <div style="flex:1">
+          <label for="name">Name</label>
+          <input id="name" name="name" required placeholder="Your name" aria-required="true">
+        </div>
+        <div style="flex:1">
+          <label for="email">Email</label>
+          <input id="email" name="email" required type="email" placeholder="you@example.com" aria-required="true">
+        </div>
+      </div>
+
+      <!-- Honeypot field to reduce spam -->
+      <div style="display:none">
+        <label for="website">Website</label>
+        <input id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div style="margin-top:12px">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Share your feedback, bug, or partnership idea..." required></textarea>
+      </div>
+
+      <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+        <button class="btn" type="submit">Send Message</button>
+        <small style="opacity:0.8">We respond within 48 hours. Privacy-respecting, no tracking required to contact us.</small>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+    <div>© 2025 VelocityX Racing. All rights reserved.</div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <a href="privacy.html" style="opacity:0.9">Privacy</a>
+      <a href="terms.html" style="opacity:0.9">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Minimal JS: accessible mobile menu toggle and simple newsletter/contact form UX hooks.
+  (function(){
+    const btn = document.querySelector('[data-nav-toggle]');
+    const menu = document.querySelector('[data-nav-menu]');
+    if(btn && menu){
+      btn.addEventListener('click', ()=> {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        menu.style.display = expanded ? '' : 'block';
+      });
+    }
+    // Basic client-side form honeypot validation
+    const form = document.getElementById('contact-form');
+    if(form){
+      form.addEventListener('submit', (e)=>{
+        const hp = form.querySelector('[name="website"]');
+        if(hp && hp.value){
+          e.preventDefault();
+        }
+      });
+    }
+  })();
+</script>
+
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
